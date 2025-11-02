@@ -1,12 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { LandingHome } from "@/features/landing-page/ui/views/landing-home";
 
 export default function HomePage() {
-
-
-
-  return (
-    <div>
-      RELION
-    </div>
-  );
+  return <LandingHome />;
 }
