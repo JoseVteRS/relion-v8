@@ -1,6 +1,9 @@
 FROM node:24-slim AS base
 WORKDIR /app
 
+# Instalar OpenSSL en todos los stages
+RUN apt-get update -y && apt-get install -y openssl
+
 # Stage 1: Dependencias
 FROM base AS deps
 COPY package.json pnpm-lock.yaml ./
@@ -24,6 +27,7 @@ ENV NODE_ENV=production
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY package.json pnpm-lock.yaml ./
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/.next ./.next
@@ -31,5 +35,4 @@ COPY --from=builder /app/public ./public
 
 EXPOSE 3000
 
-# ✅ Migraciones + Iniciar servidor
 CMD ["sh", "-c", "pnpm dlx prisma migrate deploy && pnpm start"]
