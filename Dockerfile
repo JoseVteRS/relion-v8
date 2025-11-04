@@ -35,4 +35,4 @@ COPY --from=builder /app/public ./public
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "pnpm dlx prisma migrate deploy && pnpm start"]
+CMD ["pnpm", "run", "start"]
