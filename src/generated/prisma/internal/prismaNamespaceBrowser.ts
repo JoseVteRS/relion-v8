@@ -155,6 +155,7 @@ export const ListScalarFieldEnum = {
   description: 'description',
   visibility: 'visibility',
   dateEvent: 'dateEvent',
+  isForMe: 'isForMe',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

@@ -3,6 +3,7 @@
 import {
   GiftIcon,
   HeartIcon,
+  HomeIcon,
   ListIcon,
   StarIcon,
   TicketCheckIcon,
@@ -29,6 +30,11 @@ import { DashboardUserButton } from "./dashboard-user-button";
 
 const firstSection = [
   {
+    icon: HomeIcon,
+    label: "Inicio",
+    href: "/dashboard",
+  },
+  {
     icon: GiftIcon,
     label: "Mis regalos",
     href: "/dashboard/presents",
@@ -44,13 +50,13 @@ const secondSection = [
   {
     icon: HeartIcon,
     label: "Listas favoritas",
-    href: "/dashboard/lists/favorites",
+    href: "/dashboard/favorites",
   },
-  // {
-  //   icon: TicketCheckIcon,
-  //   label: "Tus reservas",
-  //   href: "/presents/picks/",
-  // }
+  {
+    icon: TicketCheckIcon,
+    label: "Tus reservas",
+    href: "/dashboard/picks",
+  }
 ] as const;
 
 const thirdSection = [

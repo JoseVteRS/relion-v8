@@ -1,6 +1,7 @@
 "use client";
 
 import { Alert, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -27,6 +28,8 @@ const formSchema = z.object({
 
 export const LoginForm = () => {
   const router = useRouter();
+
+  // const lastUsedMethod = authClient.getLastUsedLoginMethod()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -80,6 +83,9 @@ export const LoginForm = () => {
               className="w-full"
             >
               Google
+              {true && (
+                <Badge>Último usado</Badge>
+              )}
             </Button>
           </div>
 

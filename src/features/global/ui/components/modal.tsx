@@ -1,12 +1,6 @@
 "use client";
 
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
+import { ResponsiveDialog } from "@/components/responsive-dialog";
 
 type ModalProps = {
   isOpen: boolean;
@@ -24,18 +18,13 @@ export function Modal({
   children,
 }: ModalProps) {
   return (
-    <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent>
-        {(title || description) && (
-          <DialogHeader>
-            {title && <DialogTitle>{title}</DialogTitle>}
-            {description && (
-              <DialogDescription>{description}</DialogDescription>
-            )}
-          </DialogHeader>
-        )}
-        {children}
-      </DialogContent>
-    </Dialog>
+    <ResponsiveDialog
+      title={title ?? ""}
+      description={description ?? ""}
+      open={isOpen}
+      onOpenChange={onOpenChange}
+    >
+      {children}
+    </ResponsiveDialog>
   );
 }

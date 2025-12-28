@@ -2,17 +2,14 @@
 
 import { useModalState } from "@/features/global/store/modal";
 import { Modal } from "@/features/global/ui/components/modal";
+import { useCreatePresent } from "../../hooks/use-presents";
 import { PresentCreateForm } from "./present-create-form";
 
 const MODAL_ID = "present-create";
 
-interface PresentCreateModalProps {
-  isOpen: boolean;
-  onOpenChange: (isOpen: boolean) => void;
-}
-
 export function PresentCreateModal() {
   const [isOpen, setIsOpen] = useModalState(MODAL_ID);
+  const createMutation = useCreatePresent();
 
   return (
     <Modal
@@ -21,7 +18,13 @@ export function PresentCreateModal() {
       isOpen={isOpen}
       onOpenChange={setIsOpen}
     >
-      <PresentCreateForm />
+      <PresentCreateForm
+        onSubmit={(data) => {
+          createMutation.mutate(data);
+        }}
+        onCancel={() => setIsOpen(false)}
+        isLoading={createMutation.isPending}
+      />
     </Modal>
   );
 }

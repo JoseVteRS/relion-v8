@@ -29,6 +29,7 @@ export type ListMinAggregateOutputType = {
   description: string | null
   visibility: $Enums.ItemVisibility | null
   dateEvent: Date | null
+  isForMe: boolean | null
   userId: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -40,6 +41,7 @@ export type ListMaxAggregateOutputType = {
   description: string | null
   visibility: $Enums.ItemVisibility | null
   dateEvent: Date | null
+  isForMe: boolean | null
   userId: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -51,6 +53,7 @@ export type ListCountAggregateOutputType = {
   description: number
   visibility: number
   dateEvent: number
+  isForMe: number
   userId: number
   createdAt: number
   updatedAt: number
@@ -64,6 +67,7 @@ export type ListMinAggregateInputType = {
   description?: true
   visibility?: true
   dateEvent?: true
+  isForMe?: true
   userId?: true
   createdAt?: true
   updatedAt?: true
@@ -75,6 +79,7 @@ export type ListMaxAggregateInputType = {
   description?: true
   visibility?: true
   dateEvent?: true
+  isForMe?: true
   userId?: true
   createdAt?: true
   updatedAt?: true
@@ -86,6 +91,7 @@ export type ListCountAggregateInputType = {
   description?: true
   visibility?: true
   dateEvent?: true
+  isForMe?: true
   userId?: true
   createdAt?: true
   updatedAt?: true
@@ -170,6 +176,7 @@ export type ListGroupByOutputType = {
   description: string | null
   visibility: $Enums.ItemVisibility
   dateEvent: Date | null
+  isForMe: boolean
   userId: string
   createdAt: Date
   updatedAt: Date
@@ -202,6 +209,7 @@ export type ListWhereInput = {
   description?: Prisma.StringNullableFilter<"List"> | string | null
   visibility?: Prisma.EnumItemVisibilityFilter<"List"> | $Enums.ItemVisibility
   dateEvent?: Prisma.DateTimeNullableFilter<"List"> | Date | string | null
+  isForMe?: Prisma.BoolFilter<"List"> | boolean
   userId?: Prisma.StringFilter<"List"> | string
   createdAt?: Prisma.DateTimeFilter<"List"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"List"> | Date | string
@@ -216,6 +224,7 @@ export type ListOrderByWithRelationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   visibility?: Prisma.SortOrder
   dateEvent?: Prisma.SortOrderInput | Prisma.SortOrder
+  isForMe?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -233,6 +242,7 @@ export type ListWhereUniqueInput = Prisma.AtLeast<{
   description?: Prisma.StringNullableFilter<"List"> | string | null
   visibility?: Prisma.EnumItemVisibilityFilter<"List"> | $Enums.ItemVisibility
   dateEvent?: Prisma.DateTimeNullableFilter<"List"> | Date | string | null
+  isForMe?: Prisma.BoolFilter<"List"> | boolean
   userId?: Prisma.StringFilter<"List"> | string
   createdAt?: Prisma.DateTimeFilter<"List"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"List"> | Date | string
@@ -247,6 +257,7 @@ export type ListOrderByWithAggregationInput = {
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   visibility?: Prisma.SortOrder
   dateEvent?: Prisma.SortOrderInput | Prisma.SortOrder
+  isForMe?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -264,6 +275,7 @@ export type ListScalarWhereWithAggregatesInput = {
   description?: Prisma.StringNullableWithAggregatesFilter<"List"> | string | null
   visibility?: Prisma.EnumItemVisibilityWithAggregatesFilter<"List"> | $Enums.ItemVisibility
   dateEvent?: Prisma.DateTimeNullableWithAggregatesFilter<"List"> | Date | string | null
+  isForMe?: Prisma.BoolWithAggregatesFilter<"List"> | boolean
   userId?: Prisma.StringWithAggregatesFilter<"List"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"List"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"List"> | Date | string
@@ -275,6 +287,7 @@ export type ListCreateInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutListsInput
@@ -288,6 +301,7 @@ export type ListUncheckedCreateInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -301,6 +315,7 @@ export type ListUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutListsNestedInput
@@ -314,6 +329,7 @@ export type ListUncheckedUpdateInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -327,6 +343,7 @@ export type ListCreateManyInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -338,6 +355,7 @@ export type ListUpdateManyMutationInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -348,6 +366,7 @@ export type ListUncheckedUpdateManyInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -374,6 +393,7 @@ export type ListCountOrderByAggregateInput = {
   description?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   dateEvent?: Prisma.SortOrder
+  isForMe?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -385,6 +405,7 @@ export type ListMaxOrderByAggregateInput = {
   description?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   dateEvent?: Prisma.SortOrder
+  isForMe?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -396,6 +417,7 @@ export type ListMinOrderByAggregateInput = {
   description?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
   dateEvent?: Prisma.SortOrder
+  isForMe?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -484,6 +506,7 @@ export type ListCreateWithoutUserInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   presents?: Prisma.PresentCreateNestedManyWithoutListInput
@@ -496,6 +519,7 @@ export type ListUncheckedCreateWithoutUserInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   presents?: Prisma.PresentUncheckedCreateNestedManyWithoutListInput
@@ -537,6 +561,7 @@ export type ListScalarWhereInput = {
   description?: Prisma.StringNullableFilter<"List"> | string | null
   visibility?: Prisma.EnumItemVisibilityFilter<"List"> | $Enums.ItemVisibility
   dateEvent?: Prisma.DateTimeNullableFilter<"List"> | Date | string | null
+  isForMe?: Prisma.BoolFilter<"List"> | boolean
   userId?: Prisma.StringFilter<"List"> | string
   createdAt?: Prisma.DateTimeFilter<"List"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"List"> | Date | string
@@ -548,6 +573,7 @@ export type ListCreateWithoutPresentsInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutListsInput
@@ -560,6 +586,7 @@ export type ListUncheckedCreateWithoutPresentsInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -588,6 +615,7 @@ export type ListUpdateWithoutPresentsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutListsNestedInput
@@ -600,6 +628,7 @@ export type ListUncheckedUpdateWithoutPresentsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -612,6 +641,7 @@ export type ListCreateWithoutFavoriteListsInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutListsInput
@@ -624,6 +654,7 @@ export type ListUncheckedCreateWithoutFavoriteListsInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   userId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -652,6 +683,7 @@ export type ListUpdateWithoutFavoriteListsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutListsNestedInput
@@ -664,6 +696,7 @@ export type ListUncheckedUpdateWithoutFavoriteListsInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -676,6 +709,7 @@ export type ListCreateManyUserInput = {
   description?: string | null
   visibility?: $Enums.ItemVisibility
   dateEvent?: Date | string | null
+  isForMe?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -686,6 +720,7 @@ export type ListUpdateWithoutUserInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   presents?: Prisma.PresentUpdateManyWithoutListNestedInput
@@ -698,6 +733,7 @@ export type ListUncheckedUpdateWithoutUserInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   presents?: Prisma.PresentUncheckedUpdateManyWithoutListNestedInput
@@ -710,6 +746,7 @@ export type ListUncheckedUpdateManyWithoutUserInput = {
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   visibility?: Prisma.EnumItemVisibilityFieldUpdateOperationsInput | $Enums.ItemVisibility
   dateEvent?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  isForMe?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -760,6 +797,7 @@ export type ListSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   description?: boolean
   visibility?: boolean
   dateEvent?: boolean
+  isForMe?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -775,6 +813,7 @@ export type ListSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   description?: boolean
   visibility?: boolean
   dateEvent?: boolean
+  isForMe?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -787,6 +826,7 @@ export type ListSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   description?: boolean
   visibility?: boolean
   dateEvent?: boolean
+  isForMe?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -799,12 +839,13 @@ export type ListSelectScalar = {
   description?: boolean
   visibility?: boolean
   dateEvent?: boolean
+  isForMe?: boolean
   userId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ListOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "visibility" | "dateEvent" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["list"]>
+export type ListOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "visibility" | "dateEvent" | "isForMe" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["list"]>
 export type ListInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   presents?: boolean | Prisma.List$presentsArgs<ExtArgs>
@@ -831,6 +872,7 @@ export type $ListPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     description: string | null
     visibility: $Enums.ItemVisibility
     dateEvent: Date | null
+    isForMe: boolean
     userId: string
     createdAt: Date
     updatedAt: Date
@@ -1265,6 +1307,7 @@ export interface ListFieldRefs {
   readonly description: Prisma.FieldRef<"List", 'String'>
   readonly visibility: Prisma.FieldRef<"List", 'ItemVisibility'>
   readonly dateEvent: Prisma.FieldRef<"List", 'DateTime'>
+  readonly isForMe: Prisma.FieldRef<"List", 'Boolean'>
   readonly userId: Prisma.FieldRef<"List", 'String'>
   readonly createdAt: Prisma.FieldRef<"List", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"List", 'DateTime'>

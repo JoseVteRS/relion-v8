@@ -117,6 +117,7 @@ model List {
   description   String?
   visibility    ItemVisibility @default(public)
   dateEvent     DateTime?      @map("date_event")
+  isForMe       Boolean        @default(true) @map("is_for_me")
   userId        String         @map("user_id")
   createdAt     DateTime       @default(now()) @map("created_at")
   updatedAt     DateTime       @default(now()) @map("updated_at")
